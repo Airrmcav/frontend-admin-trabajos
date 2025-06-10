@@ -50,14 +50,12 @@ async function uploadFile(file, taskTitle, taskId) {
     const result = await response.json();
     console.log("Upload result:", result);
 
-    // 2. Segundo envío a tu PHP en htdocs - ahora esperamos la respuesta
     const phpFormData = new FormData();
     phpFormData.append("archivo", file);
     phpFormData.append("taskId", taskId);
 
     try {
-      // Hacer la petición de forma síncrona para poder usar su respuesta
-      const phpResponse = await fetch("http://localhost/uploads/upload.php", {
+      const phpResponse = await fetch("https://mcav.com.mx/uploads/upload.php", {
         method: "POST",
         body: phpFormData,
       });

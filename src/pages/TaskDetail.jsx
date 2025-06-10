@@ -139,7 +139,7 @@ const Activities = ({ activity, id, refetch, onActivityAdded }) => {
       phpFormData.append("taskId", taskId);
 
       try {
-        const phpResponse = await fetch("http://localhost/uploads/upload.php", {
+        const phpResponse = await fetch("https://mcav.com.mx/uploads/upload.php", {
           method: "POST",
           body: phpFormData,
         });
@@ -533,7 +533,7 @@ const TaskDetail = () => {
                       const fileType = getFileType(el);
                       const fileUrl = el.startsWith("http")
                         ? el
-                        : `http://localhost${el}`;
+                        : `https://mcav.com.mx${el}`;
                       const fileName = el.split("/").pop();
 
                       return (
